@@ -1,0 +1,17 @@
+* {
+    margin: 0px;
+    padding: 0px;
+
+}
+
+table, th, td {
+    border: 1px solid black;
+    margin: 2px;
+    padding: 4px;
+    
+}
+
+td{
+    padding-right: 10px;
+    padding-left: 10px;
+}
