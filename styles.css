@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+.buttons-wrapping{
+    width: 10rem;
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+}
+
 table, tr, td {
     border: 1px solid black;
     margin: 2px;
@@ -27,5 +34,16 @@ td > div {
 div > button {
     height: 100%;
     width: 100%;
+}
+
+
+.result{
+    border: 1px solid black;
+    height: 50px;
+    margin: 2px;
+    padding: 4px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
 
