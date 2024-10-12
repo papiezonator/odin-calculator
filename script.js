@@ -16,8 +16,22 @@ function divide(a,b){
 
 resultSpace = document.querySelector(".result");
 
+let btn = document.querySelectorAll(".btn");
 
-one = parseInt(document.querySelector(".number-one").textContent);
-two = parseInt(document.querySelector(".number-two").textContent);
-three = parseInt(document.querySelector(".number-three").textContent);
 
+
+btn.forEach(button => {
+    button.addEventListener("click", () => {
+        console.log(parseInt(button.textContent));
+    })
+})
+
+
+
+
+/*
+for(let i = 0; i < test.length-1; i++){
+    console.log(test[i].textContent);
+    console.log(parseInt(test[i].textContent) + parseInt(test[i].textContent));
+}
+*/
