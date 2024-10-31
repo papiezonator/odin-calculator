@@ -74,7 +74,7 @@ btn.forEach(button => {
         if(resultSpace.innerText == 0){
             resultSpace.innerText = "";
         }
-        //resultSpace.innerText += button.textContent;
+        
 
         displayValue = resultSpace.innerText;
         if(operatorValue == null){
@@ -91,8 +91,17 @@ operatorBtn.forEach(button => {
     button.addEventListener("click", () => {
         operatorValue = button.innerText;
 
+        if(operatorValue == "AC"){
+            firstNumber = "";
+            secondNumber = "";
+            resultSpace.innerText = 0;
+            operatorValue = null;
+            
+        }
+
+
         resultSpace.innerText = "";
-        //resultSpace.innerText = "";
+        
         
        
 
@@ -119,9 +128,3 @@ equals.addEventListener("click", () => {
 
 
 
-/*
-for(let i = 0; i < test.length-1; i++){
-    console.log(test[i].textContent);
-    console.log(parseInt(test[i].textContent) + parseInt(test[i].textContent));
-}
-*/
