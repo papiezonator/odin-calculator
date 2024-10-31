@@ -76,14 +76,15 @@ btn.forEach(button => {
         }
         
 
-        displayValue = resultSpace.innerText;
+        
         if(operatorValue == null){
             firstNumber = resultSpace.innerText += button.textContent
         } else if (operatorValue != null){
-            
+            resultSpace.innerText = "";
             secondNumber = resultSpace.innerText += button.textContent
             
         }
+        displayValue = resultSpace.innerText;
     });
 });
 
@@ -94,13 +95,13 @@ operatorBtn.forEach(button => {
         if(operatorValue == "AC"){
             firstNumber = "";
             secondNumber = "";
-            resultSpace.innerText = 0;
-            operatorValue = null;
             
+            operatorValue = null;
+            resultSpace.innerText = 0;
         }
 
 
-        resultSpace.innerText = "";
+        //resultSpace.innerText = "";
         
         
        
@@ -110,6 +111,7 @@ operatorBtn.forEach(button => {
 
 equals.addEventListener("click", () => {
     if(operatorValue == "+"){
+        
         operate(firstNumber, '+' ,secondNumber);
     }
     if(operatorValue == "-"){
