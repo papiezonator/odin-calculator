@@ -1,5 +1,4 @@
-//display tylko pokazuje, rzeczywista wartosc jest trzymana jako array, operator sluzy do oddzielenia, jesli operator jest wiecej niz 1 to wykonuje 
-//funkcje zadeklarowan przez 1 op
+
 
 let resultSpace = document.querySelector(".result");
 
@@ -16,12 +15,6 @@ let operatorValue
 let displayValue
 
 
-/*function add(a, b){
-
-        let sum = parseInt(a)+parseInt(b);
-    console.log(sum);
-    
-}*/
 
 function substract(a,b){
     return a-b;
@@ -112,7 +105,7 @@ operatorBtn.forEach(button => {
 equals.addEventListener("click", () => {
     if(operatorValue == "+"){
         
-        operate(firstNumber, '+' ,secondNumber);
+        operate(firstNumber, '+' ,secondNumber);    
     }
     if(operatorValue == "-"){
         operate(firstNumber, '-' ,secondNumber);
