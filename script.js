@@ -1,7 +1,7 @@
 //display tylko pokazuje, rzeczywista wartosc jest trzymana jako array, operator sluzy do oddzielenia, jesli operator jest wiecej niz 1 to wykonuje 
 //funkcje zadeklarowan przez 1 op
 
-resultSpace = document.querySelector(".result");
+let resultSpace = document.querySelector(".result");
 
 let btn = document.querySelectorAll(".btn");
 
