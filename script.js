@@ -13,6 +13,7 @@ let secondNumber
 let operatorValue
 let displayValue
 let arr = [];
+let equal
 
 
 function sum(num1,num2){
@@ -36,25 +37,29 @@ function operate(first, operator, second){
         case '+':
             firstNumber = sum(first, second);
             resultSpace.innerText = firstNumber;
-            console.log(`firstNumber: ${firstNumber}`);
+            //console.log(`firstNumber: ${firstNumber}`);
             secondNumber = undefined;
+            //console.log("before: ", arr);
             arr = [];
             arr.push(firstNumber);
             arr.push(operatorValue);
+            console.log("after: ", arr);
             return;
         case '-':
             firstNumber = substract(first, second);
             resultSpace.innerText = firstNumber;
-            console.log(`firstNumber: ${firstNumber}`);
+            //console.log(`firstNumber: ${firstNumber}`);
             secondNumber = undefined;
             arr = [];
             arr.push(firstNumber);
             arr.push(operatorValue);
+            console.log("after: ", arr);
+            equal = false;
             return;
         case 'x':
             firstNumber = parseInt(first) * parseInt(second);
             resultSpace.innerText = firstNumber;
-            console.log(`firstNumber: ${firstNumber}`);
+            //console.log(`firstNumber: ${firstNumber}`);
             secondNumber = undefined;
             arr = [];
             arr.push(firstNumber);
@@ -63,7 +68,7 @@ function operate(first, operator, second){
         case '/':
             firstNumber = parseInt(first) / parseInt(second);
             resultSpace.innerText = firstNumber;
-            console.log(`firstNumber: ${firstNumber}`);
+            //console.log(`firstNumber: ${firstNumber}`);
             secondNumber = undefined;
             arr = [];
             arr.push(firstNumber);
@@ -108,8 +113,12 @@ operatorBtn.forEach(button => {
             resultSpace.innerText = 0;
             arr = [];
         } else if (operatorValue != undefined && secondNumber != undefined){
-            console.log(`firstNumber: ${firstNumber}, operatorValue: ${operatorValue}, secondNumber: ${secondNumber}`)
+            //console.log(`firstNumber: ${firstNumber}, operatorValue: ${operatorValue}, secondNumber: ${secondNumber}`)
             operate(firstNumber, arr[1], secondNumber);
+        }
+        if(equal == true){
+            arr.splice(arr[1], 1)
+            arr.push(operatorValue); 
         }
         
         
@@ -117,19 +126,11 @@ operatorBtn.forEach(button => {
 });
 
 equals.addEventListener("click", () => {
-    if(operatorValue == "+"){
-        operate(firstNumber, '+' ,secondNumber);    
-    }
-    if(operatorValue == "-"){
-        operate(firstNumber, '-' ,secondNumber);
-    }
-    if(operatorValue == "/"){
-        operate(firstNumber, '/' ,secondNumber);
-    }
-    if(operatorValue == "x"){
-        operate(firstNumber, 'x' ,secondNumber);
-    }
+    if (secondNumber != undefined){
+    equal = true;
+    operate(firstNumber, arr[1], secondNumber);
     
+}
     
 })
 
