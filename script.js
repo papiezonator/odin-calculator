@@ -72,8 +72,6 @@ function operate(first, operator, second){
     }
 }
 
-
-
 btn.forEach(button => {
     button.addEventListener("click", () => {
         if(resultSpace.innerText == 0){
@@ -104,10 +102,11 @@ operatorBtn.forEach(button => {
             arr.push(secondNumber);
         }
         if(operatorValue == "AC"){
-            firstNumber = "";
+            firstNumber = undefined;
             secondNumber = undefined;
             operatorValue = undefined;
             resultSpace.innerText = 0;
+            arr = [];
         } else if (operatorValue != undefined && secondNumber != undefined){
             console.log(`firstNumber: ${firstNumber}, operatorValue: ${operatorValue}, secondNumber: ${secondNumber}`)
             operate(firstNumber, arr[1], secondNumber);
