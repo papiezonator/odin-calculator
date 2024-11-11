@@ -11,53 +11,65 @@ let equals = document.querySelector(".equals");
 let firstNumber
 let secondNumber
 let operatorValue
-
 let displayValue
+let arr = [];
 
 
-
-function substract(a,b){
-    return a-b;
+function sum(num1,num2){
+    return parseFloat(num1) + parseFloat(num2);
 }
 
-function multiply(a,b){
-    return a*b
+function substract(num1,num2){
+    return parseFloat(num1) - parseFloat(num2);
 }
 
-function divide(a,b){
-    return a/b
+function multiply(num1,num2){
+    return parseFloat(num1) * parseFloat(num2);
+}
+
+function divide(num1,num2){
+    return parseFloat(num1) * parseFloat(num2);
 }
 
 function operate(first, operator, second){
     switch(operator){
         case '+':
-            
-            let sum = parseInt(first) + parseInt(second);
-            firstNumber = sum;
-            resultSpace.innerText = sum;
-            console.log(sum);
+            firstNumber = sum(first, second);
+            resultSpace.innerText = firstNumber;
+            console.log(`firstNumber: ${firstNumber}`);
+            secondNumber = undefined;
+            arr = [];
+            arr.push(firstNumber);
+            arr.push(operatorValue);
             return;
         case '-':
-            let subs = parseInt(first) - parseInt(second);
-            firstNumber = subs;
-            resultSpace.innerText = subs;
-            console.log(subs);
+            firstNumber = substract(first, second);
+            resultSpace.innerText = firstNumber;
+            console.log(`firstNumber: ${firstNumber}`);
+            secondNumber = undefined;
+            arr = [];
+            arr.push(firstNumber);
+            arr.push(operatorValue);
             return;
         case 'x':
-            let product = parseInt(first) * parseInt(second);
-            firstNumber = product;
-            resultSpace.innerText = product;
-            console.log(product);
+            firstNumber = parseInt(first) * parseInt(second);
+            resultSpace.innerText = firstNumber;
+            console.log(`firstNumber: ${firstNumber}`);
+            secondNumber = undefined;
+            arr = [];
+            arr.push(firstNumber);
+            arr.push(operatorValue);
             return;
         case '/':
-            let quotient = parseInt(first) / parseInt(second);
-            firstNumber = quotient;
-            resultSpace.innerText = quotient;
-            console.log(quotient);   
-            return;
+            firstNumber = parseInt(first) / parseInt(second);
+            resultSpace.innerText = firstNumber;
+            console.log(`firstNumber: ${firstNumber}`);
+            secondNumber = undefined;
+            arr = [];
+            arr.push(firstNumber);
+            arr.push(operatorValue);
+            return; 
     }
-    
-
 }
 
 
@@ -66,45 +78,47 @@ btn.forEach(button => {
     button.addEventListener("click", () => {
         if(resultSpace.innerText == 0){
             resultSpace.innerText = "";
-        }
+        } 
         
-
-        
-        if(operatorValue == null){
+        if(operatorValue == undefined){
             firstNumber = resultSpace.innerText += button.textContent
-        } else if (operatorValue != null){
-            resultSpace.innerText = "";
+        } else if (operatorValue != undefined){
+            if(secondNumber == undefined){
+                resultSpace.innerText = "";
+            }
             secondNumber = resultSpace.innerText += button.textContent
             
         }
-        displayValue = resultSpace.innerText;
+        
     });
 });
 
 operatorBtn.forEach(button => {
     button.addEventListener("click", () => {
         operatorValue = button.innerText;
-
+        if(arr.includes(firstNumber) != true) {
+            arr.push(firstNumber);
+            arr.push(operatorValue);
+        }
+        if(arr.includes(secondNumber) != true && secondNumber != undefined){
+            arr.push(secondNumber);
+        }
         if(operatorValue == "AC"){
             firstNumber = "";
-            secondNumber = "";
-            
-            operatorValue = null;
+            secondNumber = undefined;
+            operatorValue = undefined;
             resultSpace.innerText = 0;
+        } else if (operatorValue != undefined && secondNumber != undefined){
+            console.log(`firstNumber: ${firstNumber}, operatorValue: ${operatorValue}, secondNumber: ${secondNumber}`)
+            operate(firstNumber, arr[1], secondNumber);
         }
-
-
-        //resultSpace.innerText = "";
         
         
-       
-
     });
 });
 
 equals.addEventListener("click", () => {
     if(operatorValue == "+"){
-        
         operate(firstNumber, '+' ,secondNumber);    
     }
     if(operatorValue == "-"){
