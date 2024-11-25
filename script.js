@@ -43,7 +43,7 @@ function operate(first, operator, second){
             arr = [];
             arr.push(firstNumber);
             arr.push(operatorValue);
-            console.log("after: ", arr);
+            //console.log("after: ", arr);
             return;
         case '-':
             firstNumber = substract(first, second);
@@ -53,8 +53,8 @@ function operate(first, operator, second){
             arr = [];
             arr.push(firstNumber);
             arr.push(operatorValue);
-            console.log("after: ", arr);
-            equal = false;
+            //console.log("after: ", arr);
+            
             return;
         case 'x':
             firstNumber = parseInt(first) * parseInt(second);
@@ -64,6 +64,7 @@ function operate(first, operator, second){
             arr = [];
             arr.push(firstNumber);
             arr.push(operatorValue);
+            
             return;
         case '/':
             firstNumber = parseInt(first) / parseInt(second);
@@ -73,6 +74,7 @@ function operate(first, operator, second){
             arr = [];
             arr.push(firstNumber);
             arr.push(operatorValue);
+            
             return; 
     }
 }
